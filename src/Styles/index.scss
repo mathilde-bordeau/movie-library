@@ -8,4 +8,16 @@ body {
   background-color: vars.$brown-secondary-color;
 }
 
+h1 {
+  font-family: vars.$title-font;
+  font-size: vars.$h1-font-size;
+  color: vars.$brown-primary-color;
+  text-align: center;
+  vertical-align: middle;
+  align-self: center;
+}
 
+h2 {
+  font-size: vars.$h2-font-size;
+  color: vars.$brown-primary-color;
+}

@@ -5,7 +5,7 @@ import './Header.scss';
 function Header() {
   return (
     <div className='header-container'>
-      <h1>MOOVIE LIBRARY</h1>
+      <h1>MOVIE LIBRARY</h1>
     </div>
   );
 }

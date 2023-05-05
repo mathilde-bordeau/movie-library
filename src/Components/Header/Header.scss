@@ -7,13 +7,4 @@
   background-color: vars.$black-primary-color;
   display: flex;
   justify-content: center;
-
-  h1 {
-    font-family: vars.$title-font;
-    font-size: vars.$h1-font-size;
-    color: vars.$brown-primary-color;
-    text-align: center;
-    vertical-align: middle;
-    align-self: center;
-  }
 }

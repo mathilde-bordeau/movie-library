@@ -1,0 +1,29 @@
+@use '../../Styles/vars.scss';
+@use '../../Styles/index.scss';
+
+.movieslist {
+
+  &-container {
+    margin-top: 3rem;
+    width: 18rem;
+  }
+
+  &-detail {
+    margin-top: 1rem;
+    height: 20rem;
+    overflow-y: scroll;
+
+    .list-group {
+
+      &-item {
+        height: 2rem;
+        padding: 0.5rem;
+        background-color: vars.$white-primary-color;
+        border-radius: vars.$primary-border-radius;
+        border: 1px solid vars.$brown-secondary-color;
+      }
+    }
+  }
+}
+
+
