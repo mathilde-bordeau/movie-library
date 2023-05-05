@@ -1,0 +1,10 @@
+@use 'reset';
+@use 'vars';
+
+body {
+  margin: auto;
+	width: 80%;
+  font-family: vars.$text-font;
+  font-size: vars.$text-size;
+}
+
