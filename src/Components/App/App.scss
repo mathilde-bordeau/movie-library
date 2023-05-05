@@ -5,16 +5,25 @@
 
   width: 80%;
   margin: 3rem auto 3rem auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+
+  background-color: vars.$background-secondary-color;
+  border-radius: vars.$primary-border-radius;
+
+  .main-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 
   .search-movie-container {
-    width: 35%;
+    width: 30%;
+    padding: 2rem;
+    background-color: vars.$background-third-color;
+    border-radius: vars.$primary-border-radius;
   }
 
   .movie-detail-container {
-    width: 65%;
+    width: 70%;
   }
 
 }

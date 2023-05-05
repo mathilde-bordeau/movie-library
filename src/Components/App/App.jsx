@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.scss';
 
-import Header from '../Header/Header';
+// import Header from '../Header/Header';
 import SearchBar from '../SearchBar/SearchBar';
 import Movie from '../Movie/Movie';
 import MoviesList from '../MoviesList/MoviesList';
@@ -9,10 +9,10 @@ import MoviesList from '../MoviesList/MoviesList';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <div className="app-container">
+    <div className="app-container">
+      <div className="main-container">
         <div className="search-movie-container">
+          <h1>Les meilleurs films à voir</h1>
           <SearchBar />
           <MoviesList />
         </div>

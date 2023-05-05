@@ -3,58 +3,42 @@ import React from 'react';
 import './MoviesList.scss';
 
 import { ListGroup } from 'react-bootstrap';
+import { OverlayTrigger, Tooltip, Figure } from 'react-bootstrap';
+
+import moviesData from '../../Data/movies.json';
+const movies = moviesData.results;
+
+const urlBaseImage = 'https://image.tmdb.org/t/p/original/';
 
 function MoviesList() {
+
+  const renderTooltip = (poster) => (
+    <Tooltip id="button-tooltip">
+      <Figure>
+        <Figure.Image
+          className='poster-figure'
+          alt="171x180"
+          src={urlBaseImage+poster}
+        />
+      </Figure>
+    </Tooltip>
+  );
+
   return (
     <div className='movieslist-container'>
       <h2>Liste des films</h2>
       <div className="movieslist-detail">
         <ListGroup defaultActiveKey="#link1">
-          <ListGroup.Item  href="#link1">
-            Link 1
-          </ListGroup.Item>
-          <ListGroup.Item href="#link2">
-            Link 2
-          </ListGroup.Item>
-          <ListGroup.Item href="#link3" >
-            Link 3
-          </ListGroup.Item>
-          <ListGroup.Item  href="#link4">
-            Link 1
-          </ListGroup.Item>
-          <ListGroup.Item href="#link5">
-            Link 2
-          </ListGroup.Item>
-          <ListGroup.Item href="#link6" >
-            Link 3
-          </ListGroup.Item>
-          <ListGroup.Item  href="#link7">
-            Link 1
-          </ListGroup.Item>
-          <ListGroup.Item href="#link8">
-            Link 2
-          </ListGroup.Item>
-          <ListGroup.Item href="#link9" >
-            Link 3
-          </ListGroup.Item>
-          <ListGroup.Item  href="#link10">
-            Link 1
-          </ListGroup.Item>
-          <ListGroup.Item href="#link11">
-            Link 2
-          </ListGroup.Item>
-          <ListGroup.Item href="#link12" >
-            Link 3
-          </ListGroup.Item>
-          <ListGroup.Item  href="#link13">
-            Link 1
-          </ListGroup.Item>
-          <ListGroup.Item href="#link14">
-            Link 2
-          </ListGroup.Item>
-          <ListGroup.Item href="#link15" >
-            Link 3
-          </ListGroup.Item>
+          {movies.map((movie) =>
+            <OverlayTrigger
+              placement="left"
+              delay={{ show: 200, hide: 100 }}
+              overlay={renderTooltip(movie.poster_path)}
+              key={movie.id}
+            >
+              <ListGroup.Item className='list-item' href="#link1">{movie.title}</ListGroup.Item>
+            </OverlayTrigger>
+          )}
         </ListGroup>
       </div>
     </div>

@@ -1,23 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Condiment&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
 
 // Colors
-$black-primary-color: #1E1E1E;
-$white-primary-color: #FFF9F9;
-$brown-primary-color: #AF5808;
-$brown-secondary-color: #FFE8DA;
-$grey-primary-color: #D9D9D9;
+$background-primary-color: #F4E7D5;
+$background-secondary-color: #FFF9F9;
+$background-third-color: #F9B74B;
+$button-color: #716EE8;
 $blue-link-color: #538EC4;
 
 // Fonts
 $title-font: 'Rajdhani', sans-serif;
-$text-font: 'Open Sans', sans-serif;
+$text-font:  "Roboto", sans-serif;
 
 // Fonts size
-$h1-font-size: 3rem;
-$h2-font-size: 1.5rem;
+$h1-font-size: 1.8rem;
+$h2-font-size: 1.2srem;
 $text-size: 1rem;
 
 // Border
-$primary-border-radius: 5px;
+$primary-border-radius: 2rem;
+$button-border-radius: 0.2rem;
+$input-border-radius: 0.2rem;

@@ -6,17 +6,17 @@ import { Form, Button } from 'react-bootstrap';
 
 function SearchBar() {
   return (
-    <div className='searchBar-container'>
-      <Form className="d-flex search-form" >
+    <div className='searchbar-container'>
+      <Form className="d-flex searchbar-form" >
         <Form.Control
           type="search"
           placeholder="Rechercher par le titre"
-          className="me-2 search-bar"
+          className="me-2 searchbar-bar"
           aria-label="Search"
           // value={searchName}
           // onChange={(e) => setSearchName(e.target.value)}
         />
-        <Button type="submit" className="search-button">Valider</Button>
+        <Button type="submit" className="searchbar-button">Valider</Button>
       </Form>
     </div>
   );

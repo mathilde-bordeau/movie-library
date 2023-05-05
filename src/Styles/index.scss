@@ -5,19 +5,15 @@ body {
   margin: auto;
   font-family: vars.$text-font;
   font-size: vars.$text-size;
-  background-color: vars.$brown-secondary-color;
+  background-color: vars.$background-primary-color;
 }
 
 h1 {
   font-family: vars.$title-font;
   font-size: vars.$h1-font-size;
-  color: vars.$brown-primary-color;
-  text-align: center;
-  vertical-align: middle;
-  align-self: center;
+  text-align: left;
 }
 
 h2 {
   font-size: vars.$h2-font-size;
-  color: vars.$brown-primary-color;
 }

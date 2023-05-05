@@ -1,7 +1,12 @@
 @use '../../Styles/vars.scss';
 @use '../../Styles/index.scss';
 
-.search {
+.searchbar {
+
+  &-container {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
   
   &-form {
     height: 2rem;
@@ -12,7 +17,7 @@
     height: 100%;
     width: 15rem;
     border: none;
-    border-radius: vars.$primary-border-radius;
+    border-radius: vars.$input-border-radius;
     padding-left: 0.5rem;
     margin-right: 0.5rem;
     font-family: vars.$text-font;
@@ -20,11 +25,11 @@
   
   &-button {
     height: 100%;
-    background-color: vars.$brown-primary-color;
+    background-color: vars.$button-color;
     font-family: vars.$text-font;
-    color: vars.$white-primary-color;
+    color: white;
     border: none;
-    border-radius: vars.$primary-border-radius;
+    border-radius: vars.$button-border-radius;
   }
  
   

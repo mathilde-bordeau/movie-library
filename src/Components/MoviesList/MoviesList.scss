@@ -4,8 +4,7 @@
 .movieslist {
 
   &-container {
-    margin-top: 3rem;
-    width: 18rem;
+    width: 20rem;
   }
 
   &-detail {
@@ -16,14 +15,17 @@
     .list-group {
 
       &-item {
-        height: 2rem;
+        height: 3rem;
         padding: 0.5rem;
-        background-color: vars.$white-primary-color;
-        border-radius: vars.$primary-border-radius;
-        border: 1px solid vars.$brown-secondary-color;
+        background-color: vars.$background-secondary-color;
+        border-radius: vars.$input-border-radius;
+        border: 1px solid vars.$background-third-color;
       }
     }
   }
 }
 
-
+.poster-figure {
+  width: 128px;
+  height: 192px;
+}
