@@ -6,7 +6,6 @@ import SearchBar from '../SearchBar/SearchBar';
 import Movie from '../Movie/Movie';
 import MoviesList from '../MoviesList/MoviesList';
 
-
 function App() {
   return (
     <div className="app-container">

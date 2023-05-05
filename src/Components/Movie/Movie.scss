@@ -1,0 +1,11 @@
+@use '../../Styles/vars.scss';
+@use '../../Styles/index.scss';
+
+.movie-container {
+  width: 90%;
+  height: 90%;
+  margin: auto;
+  // border-radius: vars.$primary-border-radius;
+  // background-color: vars.$background-primary-color;
+  align-self: center;
+}

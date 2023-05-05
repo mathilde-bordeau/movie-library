@@ -2,8 +2,12 @@ import React from 'react';
 
 import './MoviesList.scss';
 
-import { ListGroup } from 'react-bootstrap';
-import { OverlayTrigger, Tooltip, Figure } from 'react-bootstrap';
+import { 
+  OverlayTrigger, 
+  Tooltip, 
+  Figure, 
+  ListGroup 
+} from 'react-bootstrap';
 
 import moviesData from '../../Data/movies.json';
 const movies = moviesData.results;

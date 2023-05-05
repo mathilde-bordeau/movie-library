@@ -11,9 +11,11 @@ body {
 h1 {
   font-family: vars.$title-font;
   font-size: vars.$h1-font-size;
-  text-align: left;
+  color: vars.$background-secondary-color;
+  text-align: center;
 }
 
 h2 {
+  color: vars.$background-secondary-color;
   font-size: vars.$h2-font-size;
 }

@@ -3,6 +3,7 @@ import React from 'react';
 import './SearchBar.scss';
 
 import { Form, Button } from 'react-bootstrap';
+import { BsSearch } from 'react-icons/bs';
 
 function SearchBar() {
   return (
@@ -16,7 +17,7 @@ function SearchBar() {
           // value={searchName}
           // onChange={(e) => setSearchName(e.target.value)}
         />
-        <Button type="submit" className="searchbar-button">Valider</Button>
+        <Button type="submit" className="searchbar-button"><BsSearch /></Button>
       </Form>
     </div>
   );
