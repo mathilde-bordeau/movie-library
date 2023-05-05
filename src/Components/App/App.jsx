@@ -7,7 +7,6 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <h1>Je vais tout déchiiiiiiiiiiiiiirer !</h1>
     </div>
   );
 }
