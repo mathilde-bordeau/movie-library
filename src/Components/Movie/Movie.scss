@@ -2,10 +2,38 @@
 @use '../../Styles/index.scss';
 
 .movie-container {
-  width: 90%;
-  height: 90%;
+  width: 80%;
+  height: 80%;
   margin: auto;
   // border-radius: vars.$primary-border-radius;
   // background-color: vars.$background-primary-color;
   align-self: center;
+
+  .presentation-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    margin-bottom: 2rem;
+
+    .informations-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+
+      .informations-part1 {
+        margin-right: 2rem;
+      }
+    }
+
+    .caracteristic {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .poster-image {
+    width: 153px;
+    height: 231px;
+    border-radius: vars.$poster-border-radius;
+    margin-right: 3rem;
+  }
 }

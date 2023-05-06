@@ -16,6 +16,12 @@ h1 {
 }
 
 h2 {
-  color: vars.$background-secondary-color;
+  color: black;
   font-size: vars.$h2-font-size;
+  margin-bottom: 2rem;
+}
+
+h3 {
+  color: vars.$h3-font-color;
+  font-size: vars.$h3-font-size;
 }

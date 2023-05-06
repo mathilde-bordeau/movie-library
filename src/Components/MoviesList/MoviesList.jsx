@@ -30,7 +30,7 @@ function MoviesList() {
 
   return (
     <div className='movieslist-container'>
-      <h2>Liste des films</h2>
+      <h3>Liste des films</h3>
       <div className="movieslist-detail">
         <ListGroup defaultActiveKey="#link1">
           {movies.map((movie) =>

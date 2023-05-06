@@ -12,11 +12,13 @@
     height: 2rem;
     font-family: vars.$text-font;
     display: flex;
+    justify-content: space-between;
   }
 
   &-bar {
     height: 100%;
-    width: 15rem;
+    // width: 15rem;
+    width: 100%;
     border: none;
     border-radius: vars.$input-border-radius;
     padding-left: 0.5rem;
