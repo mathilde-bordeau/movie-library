@@ -2,9 +2,9 @@ import api from '../api';
 
 const moviesRequest = {
 
-  getMoviesBySearch: async (query) => {
+  getMoviesBySearch: async (query, pageNb) => {
     try {
-      const results = await api.get(`search/movie?api_key=${process.env.REACT_APP_API_TMDB}&query=${query}`);
+      const results = await api.get(`search/movie?api_key=${process.env.REACT_APP_API_TMDB}&query=${query}&page=${pageNb}`);
       return (results.data.results);
     } catch (error) {
       console.log(error);
@@ -12,6 +12,7 @@ const moviesRequest = {
   },
 
   getMovieById: async (id) => {
+    console.log('moviebyid');
     try {
       const result = await api.get(`movie/${id}?api_key=${process.env.REACT_APP_API_TMDB}`);
       console.log(result);

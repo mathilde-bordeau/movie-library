@@ -8,6 +8,7 @@ import MoviesList from '../MoviesList/MoviesList';
 
 function App() {
 
+  const [ query, setQuery ] = useState();
   const [ movies, setMovies ] = useState([]);
   const [ movie, setMovie ] =useState();
 
@@ -16,14 +17,22 @@ function App() {
       <div className="main-container">
         <div className="search-movie-container">
           <h1>Les meilleurs films à voir</h1>
-          <SearchBar setMovies={setMovies}/>
-          <MoviesList 
+          <SearchBar 
+            setMovies={setMovies}
+            setQuery={setQuery}
+          />
+          <MoviesList
+            query={query}
             movies={movies}
+            setMovies={setMovies}
             setMovie={setMovie}
           />
         </div>
         <div className="movie-detail-container">
-          <Movie movie={movie} />
+          <Movie 
+            query={query}
+            movie={movie}
+          />
         </div>
       </div>
     </div>

@@ -9,6 +9,7 @@ import { BsSearch } from 'react-icons/bs';
 import moviesRequest from '../../requests/requests';
 
 function SearchBar({
+  setQuery,
   setMovies
 }) {
 
@@ -20,8 +21,9 @@ function SearchBar({
     if (!searchString) {
       alert('Veuillez entrer au moins un caractère');   
     }
+    setQuery(searchString);
     try {
-      const moviesResults = await moviesRequest.getMoviesBySearch(searchString);
+      const moviesResults = await moviesRequest.getMoviesBySearch(searchString, 1);
       setMovies(moviesResults);
     } catch (error) {
       console.log(error);
@@ -47,6 +49,7 @@ function SearchBar({
 }
 
 SearchBar.propTypes = {
+  setQuery: PropTypes.func,
   setMovies: PropTypes.func,
 };
 
