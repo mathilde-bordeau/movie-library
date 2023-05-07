@@ -9,24 +9,7 @@ const urlBaseImage = 'https://image.tmdb.org/t/p/original/';
 
 function Movie() {
 
-  const [ movie, setMovie ] = useState();
-
-  useEffect(() => {
-    const getMovie = async () => {
-      console.log(process.env.REACT_APP_API_TMDB);
-      try {
-        const movie = await api.get(`238?api_key=${process.env.REACT_APP_API_TMDB}`);
-        console.log(movie.data);
-        setMovie(movie.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getMovie();
-  }, []);
-
-
-  if (movie) {
+ 
     return (
       <div className='movie-container'>
         <h2>{movie.title}</h2>
@@ -65,7 +48,7 @@ function Movie() {
         </div>
       </div> 
     );
-  }
+  
 }
 
 export default React.memo(Movie);
