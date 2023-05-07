@@ -5,6 +5,7 @@ import './SearchBar.scss';
 
 import { Form, Button } from 'react-bootstrap';
 import { BsSearch } from 'react-icons/bs';
+
 import moviesRequest from '../../requests/requests';
 
 function SearchBar({

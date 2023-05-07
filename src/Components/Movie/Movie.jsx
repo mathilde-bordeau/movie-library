@@ -1,5 +1,5 @@
-import React, { useEffect, useState} from 'react';
-import api from '../../api';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import './Movie.scss';
 
@@ -7,9 +7,11 @@ import { Image } from 'react-bootstrap';
 
 const urlBaseImage = 'https://image.tmdb.org/t/p/original/';
 
-function Movie() {
+function Movie({
+  movie
+}) {
 
- 
+  if (movie) {
     return (
       <div className='movie-container'>
         <h2>{movie.title}</h2>
@@ -48,7 +50,12 @@ function Movie() {
         </div>
       </div> 
     );
-  
+  }
+
 }
+
+Movie.propTypes = {
+  movie: PropTypes.object,
+};
 
 export default React.memo(Movie);

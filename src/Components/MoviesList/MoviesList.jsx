@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import './MoviesList.scss';
 
+import moviesRequest from '../../requests/requests';
+
 import { 
   OverlayTrigger, 
   Tooltip, 
@@ -13,7 +15,8 @@ import {
 const urlBaseImage = 'https://image.tmdb.org/t/p/original/';
 
 function MoviesList({
-  movies
+  movies,
+  setMovie
 }) {
 
   const renderTooltip = (poster) => (
@@ -28,6 +31,16 @@ function MoviesList({
     </Tooltip>
   );
 
+  const getMovie = async (id) => {
+    try {
+      const movieResult = await moviesRequest.getMovieById(id);
+      console.log(movieResult);
+      setMovie(movieResult);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   if (movies) {
     return (
       <div className='movieslist-container'>
@@ -41,7 +54,13 @@ function MoviesList({
                 overlay={renderTooltip(movie.poster_path)}
                 key={movie.id}
               >
-                <ListGroup.Item className='list-item' href="#link1">{movie.title}</ListGroup.Item>
+                <ListGroup.Item 
+                  className='list-item' 
+                  href="#link1"
+                  onClick={() => getMovie(movie.id)}
+                >
+                  {movie.title}
+                </ListGroup.Item>
               </OverlayTrigger>
             )}
           </ListGroup>
@@ -54,6 +73,7 @@ function MoviesList({
 
 MoviesList.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.object),
+  setMovie: PropTypes.func,
 };
 
 export default React.memo(MoviesList);
