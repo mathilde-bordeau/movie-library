@@ -17,16 +17,15 @@ function Movie({
       <div className='movie-container'>
         <h2>{movie.title}</h2>
         <div className="presentation-container">
-          {movie.poster_path ? (
-            <Image 
-              src={urlBaseImage+movie.poster_path}
-              alt='poster du film' 
-              className='poster-image'
-            />) : (
-            <div className="poster-container">
+          <div className="poster-container">
+            {movie.poster_path ? (
+              <Image 
+                src={urlBaseImage+movie.poster_path}
+                alt='poster du film' 
+              />) : (
               <BsCardImage className='default-image' size={100}  />
-            </div>
-          )}
+            )}
+          </div>
           <div className="informations-container">
             <div className="informations-part1">
               <h4>Note :</h4>

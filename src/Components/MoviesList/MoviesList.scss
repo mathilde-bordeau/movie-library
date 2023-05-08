@@ -29,15 +29,24 @@
   }
 
   &-detail {
-    margin-top: 1rem;
+    // margin-top: 1rem;
     height: 20rem;
     overflow-y: auto;
-    border-radius: vars.$input-border-radius;
+    // border-radius: vars.$input-border-radius;
+
+    &-container {
+      overflow: hidden;
+      border-radius: vars.$input-border-radius;
+    }
 
     .list-group {
+      border-radius: 0 !important;
 
       &-item {
-        background-color: vars.$background-secondary-color;
+        background-color: vars.$background-secondary-color !important;
+        border-left: 0 !important;
+        border-top: 0 !important;
+  
 
         p {
           margin-bottom: 0;

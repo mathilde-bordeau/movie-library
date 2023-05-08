@@ -55,20 +55,22 @@ function MoviesList({
   if (movies) {
     return (
       <div className='movieslist-container'>
-        <div className="movieslist-detail">
-          <ListGroup>
-            {movies.map((movie) =>
-              <ListGroup.Item 
-                key={movie.id}
-                onClick={() => getMovie(movie.id)}
-              >
-                <p>
-                  {movie.title} - ({new Date(movie.release_date).getFullYear()})
-                </p>
-              </ListGroup.Item>
-            )}
-          </ListGroup>
-        </div>
+        <div className="movieslist-detail-container">
+          <div className="movieslist-detail">
+            <ListGroup>
+              {movies.map((movie) =>
+                <ListGroup.Item 
+                  key={movie.id}
+                  onClick={() => getMovie(movie.id)}
+                >
+                  <p>
+                    {movie.title}{movie.release_date ? ` - (${new Date(movie.release_date).getFullYear()})` : '' }
+                  </p>
+                </ListGroup.Item>
+              )}
+            </ListGroup>
+          </div>
+        </div>  
         {loadingMore &&
         <Button 
           className="more-results-button"
