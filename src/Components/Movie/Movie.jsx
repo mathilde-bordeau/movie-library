@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 import './Movie.scss';
 
-import { Image, Badge } from 'react-bootstrap';
+import { Badge, Image } from 'react-bootstrap';
+import { BsCardImage } from 'react-icons/bs';
 
 const urlBaseImage = 'https://image.tmdb.org/t/p/original/';
 
@@ -16,11 +17,16 @@ function Movie({
       <div className='movie-container'>
         <h2>{movie.title}</h2>
         <div className="presentation-container">
-          <Image 
-            src={urlBaseImage+movie.poster_path}
-            alt='poster du film' 
-            className='poster-image'
-          />
+          {movie.poster_path ? (
+            <Image 
+              src={urlBaseImage+movie.poster_path}
+              alt='poster du film' 
+              className='poster-image'
+            />) : (
+            <div className="poster-container">
+              <BsCardImage className='default-image' size={100}  />
+            </div>
+          )}
           <div className="informations-container">
             <div className="informations-part1">
               <h4>Note :</h4>

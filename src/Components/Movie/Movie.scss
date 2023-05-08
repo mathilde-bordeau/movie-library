@@ -39,6 +39,15 @@
     }
   }
 
+  .poster-container {
+    width: 153px;
+    height: 231px;
+    border-radius: vars.$poster-border-radius;
+    margin-right: 3rem;
+    display: flex;
+    justify-content: center;
+  }
+
   .poster-image {
     width: 153px;
     height: 231px;
@@ -55,4 +64,8 @@
     }
   }
 
+}
+
+.default-image {
+  align-self: center;
 }
