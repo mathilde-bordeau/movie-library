@@ -17,14 +17,14 @@
 
   &-bar {
     height: 100%;
-    // width: 15rem;
-    width: 100%;
+    width: 90%;
     border: none;
     border-radius: vars.$input-border-radius;
     padding-left: 0.5rem;
     margin-right: 0.5rem;
     font-family: vars.$text-font;
     background-color: #ffd289;
+    color: vars.$black-font-color;
 
     &::placeholder {
       color: vars.$background-secondary-color;
@@ -42,6 +42,13 @@
     border: none;
     border-radius: vars.$button-border-radius;
     padding: 0 !important;
+    display: flex;
+    justify-content: center;
+
+    .searchbar-icon {
+      align-self: center;
+    }
+
   }
  
   

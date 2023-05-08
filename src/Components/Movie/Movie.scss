@@ -5,8 +5,6 @@
   width: 80%;
   height: 80%;
   margin: auto;
-  // border-radius: vars.$primary-border-radius;
-  // background-color: vars.$background-primary-color;
   align-self: center;
 
   .presentation-container {
@@ -25,8 +23,19 @@
       }
     }
 
-    .caracteristic {
-      margin-bottom: 1rem;
+    .badge {
+      margin-right: 0.5rem !important;
+      margin-bottom: 1rem !important;
+      background-color: vars.$background-primary-color !important;
+      color: vars.$black-font-color !important;
+      font-family: vars.$text-font !important;
+      font-weight: 400 !important;
+      font-size: 0.8rem !important;
+
+      &.vote-count {
+        background-color: vars.$background-third-color !important;
+        color: vars.$background-secondary-color !important;
+      }    
     }
   }
 
@@ -36,4 +45,14 @@
     border-radius: vars.$poster-border-radius;
     margin-right: 3rem;
   }
+
+  .description-container {
+    height: 200px;
+    overflow-y: auto;
+
+    p {
+      margin-right: 1rem;
+    }
+  }
+
 }

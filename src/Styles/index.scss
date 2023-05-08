@@ -1,5 +1,6 @@
 @use 'reset';
 @use 'vars';
+@import "~bootstrap/scss/bootstrap";
 
 body {
   margin: auto;
@@ -22,6 +23,33 @@ h2 {
 }
 
 h3 {
-  color: vars.$h3-font-color;
+  color: vars.$black-font-color;
   font-size: vars.$h3-font-size;
+}
+
+h4 {
+  color: vars.$black-font-color;
+  font-size: vars.$h4-font-size;
+  margin-bottom: 0;
+}
+
+ /* Firefox */
+ * {
+  scrollbar-width: 0.6rem;
+  scrollbar-color: vars.$button-color vars.$background-secondary-color;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 0.6rem;
+  border-radius: 0;
+}
+*::-webkit-scrollbar-track {
+  background: vars.$background-secondary-color;
+  border-radius: 0;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: vars.$button-color;
+  border-radius: 1.5rem;
+  border: 0.2rem solid vars.$background-secondary-color;
 }

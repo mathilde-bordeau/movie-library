@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './SearchBar.scss';
 
-import { Form, Button } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 import { BsSearch } from 'react-icons/bs';
 
 import moviesRequest from '../../requests/requests';
@@ -34,15 +34,15 @@ function SearchBar({
   return (
     <div className='searchbar-container'>
       <Form className="d-flex searchbar-form" onSubmit={handleOnSubmit} >
-        <Form.Control
+        <input
           type="search"
-          placeholder="Rechercher par le titre"
+          placeholder="Rechercher un film"
           className="me-2 searchbar-bar"
           aria-label="Search"
           value={searchString}
           onChange={(e) => setSearchString(e.target.value)}
         />
-        <Button type="submit" className="searchbar-button"><BsSearch /></Button>
+        <button type="submit" className="searchbar-button"><BsSearch className='searchbar-icon'/></button>
       </Form>
     </div>
   );

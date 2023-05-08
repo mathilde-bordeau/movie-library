@@ -5,16 +5,7 @@ import './MoviesList.scss';
 
 import moviesRequest from '../../requests/requests';
 
-import { 
-  OverlayTrigger, 
-  Tooltip, 
-  Figure, 
-  ListGroup, 
-  Button
-} from 'react-bootstrap';
-
-const urlBaseImage = 'https://image.tmdb.org/t/p/original/';
-
+import { ListGroup, Button } from 'react-bootstrap';
 
 function MoviesList({
   query,
@@ -23,25 +14,17 @@ function MoviesList({
   setMovie
 }) {
 
+  const moonLanding = new Date('2023-04-14');
+
+  console.log(moonLanding.getFullYear());
+
   const [ pageNb, setPageNb ] = useState(1);
   const [ loadingMore, setLoadingMore ] = useState(true);
 
   useEffect(() => {
     setPageNb(1);
     setLoadingMore(true);
-  }, [query, setPageNb]);
-
-  const renderTooltip = (poster) => (
-    <Tooltip id="button-tooltip">
-      <Figure>
-        <Figure.Image
-          className='poster-figure'
-          alt="poster du film"
-          src={urlBaseImage+poster}
-        />
-      </Figure>
-    </Tooltip>
-  );
+  }, [query]);
 
   const getMovie = async (id) => {
     try {
@@ -63,7 +46,6 @@ function MoviesList({
       } else {
         console.log(movies);
         setLoadingMore(false);
-        return ;
       }
     } catch (error) {
       console.log(error);
@@ -73,23 +55,17 @@ function MoviesList({
   if (movies) {
     return (
       <div className='movieslist-container'>
-        <h3>Liste des films</h3>
         <div className="movieslist-detail">
           <ListGroup>
             {movies.map((movie) =>
-              <OverlayTrigger
-                placement="left"
-                delay={{ show: 200, hide: 100 }}
-                overlay={renderTooltip(movie.poster_path)}
+              <ListGroup.Item 
                 key={movie.id}
+                onClick={() => getMovie(movie.id)}
               >
-                <ListGroup.Item 
-                  className='list-item' 
-                  onClick={() => getMovie(movie.id)}
-                >
-                  {movie.title}
-                </ListGroup.Item>
-              </OverlayTrigger>
+                <p>
+                  {movie.title} - ({new Date(movie.release_date).getFullYear()})
+                </p>
+              </ListGroup.Item>
             )}
           </ListGroup>
         </div>

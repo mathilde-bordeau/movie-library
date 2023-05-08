@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './Movie.scss';
 
-import { Image } from 'react-bootstrap';
+import { Image, Badge } from 'react-bootstrap';
 
 const urlBaseImage = 'https://image.tmdb.org/t/p/original/';
 
@@ -23,26 +23,23 @@ function Movie({
           />
           <div className="informations-container">
             <div className="informations-part1">
-              <h3>Popularité :</h3>
-              <p className='caracteristic'>{movie.popularity}</p>
-              <h3>Public + 18ans :</h3>
-              <p className='caracteristic'>{movie.adult}</p>
-              <h3>Date de de parution :</h3>
+              <h4>Note :</h4>
+              <Badge className='caracteristic badge vote-count'>{movie.vote_average}</Badge>
+              <h4>Titre original :</h4>
+              <p className='caracteristic'>{movie.original_title}</p>
+              <h4>Date de de parution :</h4>
               <p className='caracteristic'>{movie.release_date}</p>
-              <h3>Genre :</h3>
+              <h4>Genre :</h4>
               {movie.genres.map((genre) =>
-                <p 
+                <Badge
                   key={genre.id}
-                  className='caracteristic'
-                >{genre.name}</p>
+                  className='caracteristic badge'
+                >
+                  {genre.name}
+                </Badge> 
+                  
               )}
             </div>
-            {/* <div className="informations-part2">
-              <h3>Réalisation :</h3>
-              <p className='caracteristic'>Steven Spielberg</p>
-              <h3>Casting :</h3>
-              <p className='caracteristic'>Brad Pitt, <br/> Cate Blanchette, <br/>Edward Norton,</p>
-            </div> */}
           </div>
         </div>
         <div className="description-container">
