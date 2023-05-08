@@ -9,6 +9,7 @@ body {
   background-color: vars.$background-primary-color;
 }
 
+// Titres
 h1 {
   font-family: vars.$title-font;
   font-size: vars.$h1-font-size;
@@ -33,13 +34,11 @@ h4 {
   margin-bottom: 0;
 }
 
- /* Firefox */
- * {
+// Scrollbar
+* {
   scrollbar-width: 0.6rem;
   scrollbar-color: vars.$button-color vars.$background-secondary-color;
 }
-
-/* Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
   width: 0.6rem;
   border-radius: 0;

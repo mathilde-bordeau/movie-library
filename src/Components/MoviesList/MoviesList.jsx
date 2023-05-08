@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
 import './MoviesList.scss';
 
@@ -9,22 +10,28 @@ import { ListGroup, Button } from 'react-bootstrap';
 
 function MoviesList({
   query,
-  movies,
-  setMovies,
+  result,
   setMovie
 }) {
 
-  const moonLanding = new Date('2023-04-14');
-
-  console.log(moonLanding.getFullYear());
-
+  const [ movies, setMovies ] = useState([]);
   const [ pageNb, setPageNb ] = useState(1);
-  const [ loadingMore, setLoadingMore ] = useState(true);
+  const [ hiddenLoadingMore, setHiddenLoadingMore ] = useState(true);
+  const [ disabledLoadingMore, setDisabledLoadingMore ] = useState(false);
+
 
   useEffect(() => {
+    if(result.total_pages != undefined && result.total_pages === result.page) {
+      setDisabledLoadingMore(true);
+    } else {
+      setDisabledLoadingMore(false);
+    }
+    if(result.results) {
+      setMovies(result.results);
+      setHiddenLoadingMore(false);
+    }
     setPageNb(1);
-    setLoadingMore(true);
-  }, [query]);
+  }, [result]);
 
   const getMovie = async (id) => {
     try {
@@ -36,59 +43,55 @@ function MoviesList({
   };
 
   const loadMore = async () => {
-    console.log(pageNb);
     try {
       const moviesResults = await moviesRequest.getMoviesBySearch(query, pageNb+1);
-      if (moviesResults.length > 0) {
-        setPageNb(pageNb +1);
-        setMovies((oldstate)=> ([...oldstate, ...moviesResults]));
+      setPageNb(moviesResults.page);
+      setMovies((oldstate)=> ([...oldstate, ...moviesResults.results]));
+      if (moviesResults.page >= moviesResults.total_pages) {
+        setDisabledLoadingMore(true);
         console.log(movies);
-      } else {
-        console.log(movies);
-        setLoadingMore(false);
       }
     } catch (error) {
       console.log(error);
     }
   };
 
-  if (movies) {
-    return (
-      <div className='movieslist-container'>
-        <div className="movieslist-detail-container">
-          <div className="movieslist-detail">
-            <ListGroup>
-              {movies.map((movie) =>
-                <ListGroup.Item 
-                  key={movie.id}
-                  onClick={() => getMovie(movie.id)}
-                >
-                  <p>
-                    {movie.title}{movie.release_date ? ` - (${new Date(movie.release_date).getFullYear()})` : '' }
-                  </p>
-                </ListGroup.Item>
-              )}
-            </ListGroup>
-          </div>
-        </div>  
-        {loadingMore &&
-        <Button 
-          className="more-results-button"
-          onClick={() => loadMore()}
-        >
-          Plus de résultats
-        </Button>
-        }
-      </div>
-    );
-  }
+  return (
+    <div className='movieslist-container'>
+      <div className="movieslist-detail-container">
+        <div className="movieslist-detail">
+          <ListGroup>
+            {movies.map((movie) =>
+              <ListGroup.Item 
+                key={movie.id}
+                onClick={() => getMovie(movie.id)}
+              >
+                <p>
+                  {movie.title}{movie.release_date ? ` - (${new Date(movie.release_date).getFullYear()})` : '' }
+                </p>
+              </ListGroup.Item>
+            )}
+          </ListGroup>
+        </div>
+      </div>  
+      <Button 
+        className={classnames('more-results-button', 
+          hiddenLoadingMore ? 'button-hidden': '', 
+          disabledLoadingMore ? 'button-disabled' : '')}
+        disabled={disabledLoadingMore}
+        onClick={() => loadMore()}
+      >
+        Plus de résultats
+      </Button>
+    </div>
+  );
   
 }
+  
 
 MoviesList.propTypes = {
   query: PropTypes.string,
-  movies: PropTypes.arrayOf(PropTypes.object),
-  setMovies: PropTypes.func,
+  result: PropTypes.object,
   setMovie: PropTypes.func,
 };
 

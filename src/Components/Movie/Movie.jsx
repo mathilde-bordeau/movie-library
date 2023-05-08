@@ -41,8 +41,7 @@ function Movie({
                   className='caracteristic badge'
                 >
                   {genre.name}
-                </Badge> 
-                  
+                </Badge>          
               )}
             </div>
           </div>

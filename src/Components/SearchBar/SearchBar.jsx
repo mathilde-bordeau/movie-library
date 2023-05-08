@@ -10,23 +10,23 @@ import moviesRequest from '../../requests/requests';
 
 function SearchBar({
   setQuery,
-  setMovies
+  setResult
 }) {
 
   const [ searchString, setSearchString] = useState();
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
-    console.log(searchString);
     if (!searchString) {
       alert('Veuillez entrer au moins un caractère');   
-    }
-    setQuery(searchString);
-    try {
-      const moviesResults = await moviesRequest.getMoviesBySearch(searchString, 1);
-      setMovies(moviesResults);
-    } catch (error) {
-      console.log(error);
+    } else {
+      setQuery(searchString);
+      try {
+        const moviesResults = await moviesRequest.getMoviesBySearch(searchString, 1);
+        setResult(moviesResults);
+      } catch (error) {
+        console.log(error);
+      }
     }
     
   };
@@ -50,7 +50,7 @@ function SearchBar({
 
 SearchBar.propTypes = {
   setQuery: PropTypes.func,
-  setMovies: PropTypes.func,
+  setResult: PropTypes.func,
 };
 
 export default React.memo(SearchBar);
