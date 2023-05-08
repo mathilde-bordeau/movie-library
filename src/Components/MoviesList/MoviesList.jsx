@@ -19,7 +19,6 @@ function MoviesList({
   const [ hiddenLoadingMore, setHiddenLoadingMore ] = useState(true);
   const [ disabledLoadingMore, setDisabledLoadingMore ] = useState(false);
 
-
   useEffect(() => {
     if(result.total_pages != undefined && result.total_pages === result.page) {
       setDisabledLoadingMore(true);
@@ -85,10 +84,9 @@ function MoviesList({
       </Button>
     </div>
   );
-  
+
 }
   
-
 MoviesList.propTypes = {
   query: PropTypes.string,
   result: PropTypes.object,

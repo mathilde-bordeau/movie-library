@@ -18,7 +18,7 @@
       flex-direction: row;
       justify-content: center;
 
-      .informations-part1 {
+      .informations-detail {
         margin-right: 2rem;
       }
     }
@@ -32,7 +32,7 @@
       font-weight: 400 !important;
       font-size: 0.8rem !important;
 
-      &.vote-count {
+      &.vote-average {
         background-color: vars.$background-third-color !important;
         color: vars.$background-secondary-color !important;
       }    
@@ -41,16 +41,21 @@
 
   .poster-container {
     width: 153px;
+    min-width: 153px;
     height: 231px;
     border-radius: vars.$poster-border-radius;
     margin-right: 3rem;
     display: flex;
     justify-content: center;
     overflow: hidden;
+
+    img {
+      object-fit: fill;
+    }
   }
 
   .description-container {
-    height: 200px;
+    height: 10rem;
     overflow-y: auto;
 
     p {
@@ -62,4 +67,38 @@
 
 .default-image {
   align-self: center;
+}
+
+
+// Responsive design
+
+@media screen and (max-width: 400px) {
+
+  .movie-container {
+    // flex-direction: column;
+    h2 {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .presentation-container {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+
+      .poster-container {
+        margin-right: 0;
+        display: flex;
+        align-self: center;
+      }
+      
+      .informations-detail {
+        margin-bottom: 1rem;
+      }
+    }
+
+    .description-container {
+      margin-bottom: 2rem;
+    }
+  }
+
 }

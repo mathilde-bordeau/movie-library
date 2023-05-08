@@ -27,9 +27,9 @@ function Movie({
             )}
           </div>
           <div className="informations-container">
-            <div className="informations-part1">
+            <div className="informations-detail">
               <h4>Note :</h4>
-              <Badge className='caracteristic badge vote-count'>{movie.vote_average}</Badge>
+              <Badge className='caracteristic badge vote-average'>{movie.vote_average}</Badge>
               <h4>Titre original :</h4>
               <p className='caracteristic'>{movie.original_title}</p>
               <h4>Date de de parution :</h4>
