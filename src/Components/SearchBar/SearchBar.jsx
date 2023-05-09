@@ -16,6 +16,11 @@ function SearchBar({
 
   const [ searchString, setSearchString] = useState();
 
+
+  /**
+   * 
+   * @param {*} e 
+   */
   const handleOnSubmit = async (e) => {
     e.preventDefault();
     setMessage('');
@@ -51,7 +56,7 @@ function SearchBar({
       </Form>
     </div>
   );
-  
+
 }
 
 SearchBar.propTypes = {

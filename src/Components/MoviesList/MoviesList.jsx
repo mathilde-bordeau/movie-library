@@ -22,11 +22,13 @@ function MoviesList({
   const [ disabledLoadingMore, setDisabledLoadingMore ] = useState(false);
 
   useEffect(() => {
-    if (result.total_pages != undefined && result.total_pages === result.page) {
+
+    if (result.total_pages != undefined && result.total_pages === 1) {
       setDisabledLoadingMore(true);
     } else {
       setDisabledLoadingMore(false);
     }
+
     if (result && result.total_results === 0) {
       setMessage('Pas de résultat pour votre recherche');
       setHiddenLoadingMore(true);
@@ -36,9 +38,15 @@ function MoviesList({
       setMessage('');
       setHiddenLoadingMore(false);
     }
+
     setPageNb(1);
   }, [result]);
 
+
+  /**
+   * selection du film à afficher
+   * @param id 
+   */
   const getMovie = async (id) => {
     try {
       const movieResult = await moviesRequest.getMovieById(id);
@@ -48,6 +56,10 @@ function MoviesList({
     }
   };
 
+  
+  /**
+   * récupération des films la page suivante  
+   */
   const loadMore = async () => {
     try {
       const moviesResults = await moviesRequest.getMoviesBySearch(query, pageNb+1);
