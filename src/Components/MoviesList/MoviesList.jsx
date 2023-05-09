@@ -11,7 +11,9 @@ import { ListGroup, Button } from 'react-bootstrap';
 function MoviesList({
   query,
   result,
-  setMovie
+  setMovie,
+  message,
+  setMessage
 }) {
 
   const [ movies, setMovies ] = useState([]);
@@ -20,13 +22,17 @@ function MoviesList({
   const [ disabledLoadingMore, setDisabledLoadingMore ] = useState(false);
 
   useEffect(() => {
-    if(result.total_pages != undefined && result.total_pages === result.page) {
+    if (result.total_pages != undefined && result.total_pages === result.page) {
       setDisabledLoadingMore(true);
     } else {
       setDisabledLoadingMore(false);
     }
-    if(result.results) {
+    if (result && result.total_results === 0) {
+      setMessage('Pas de résultat pour votre recherche');
+      setHiddenLoadingMore(true);
+    } else if (result && result.total_results > 0) {
       setMovies(result.results);
+      setMessage('');
       setHiddenLoadingMore(false);
     }
     setPageNb(1);
@@ -37,7 +43,7 @@ function MoviesList({
       const movieResult = await moviesRequest.getMovieById(id);
       setMovie(movieResult);
     } catch (error) {
-      console.log(error);
+      setMessage('Problème serveur, réessayer plus tard.');
     }
   };
 
@@ -48,15 +54,17 @@ function MoviesList({
       setMovies((oldstate)=> ([...oldstate, ...moviesResults.results]));
       if (moviesResults.page >= moviesResults.total_pages) {
         setDisabledLoadingMore(true);
-        console.log(movies);
       }
     } catch (error) {
-      console.log(error);
+      setMessage('Problème serveur, réessayer plus tard.');
     }
   };
 
   return (
     <div className='movieslist-container'>
+      <div className="message-container">
+        <p>{message}</p>
+      </div>
       <div className="movieslist-detail-container">
         <div className="movieslist-detail">
           <ListGroup>
@@ -91,6 +99,8 @@ MoviesList.propTypes = {
   query: PropTypes.string,
   result: PropTypes.object,
   setMovie: PropTypes.func,
+  message: PropTypes.string,
+  setMessage: PropTypes.func,
 };
 
 export default React.memo(MoviesList);

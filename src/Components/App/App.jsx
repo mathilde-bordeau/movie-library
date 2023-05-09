@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './App.scss';
 
-// import Header from '../Header/Header';
 import SearchBar from '../SearchBar/SearchBar';
 import Movie from '../Movie/Movie';
 import MoviesList from '../MoviesList/MoviesList';
@@ -11,6 +10,7 @@ function App() {
   const [ query, setQuery ] = useState();
   const [ result, setResult ] = useState({});
   const [ movie, setMovie ] =useState();
+  const [ message, setMessage ] = useState('');
 
   return (
     <div className="app-container">
@@ -20,11 +20,14 @@ function App() {
           <SearchBar 
             setResult={setResult}
             setQuery={setQuery}
+            setMessage={setMessage}
           />
           <MoviesList
             query={query}
             result={result}
             setMovie={setMovie}
+            message={message}
+            setMessage={setMessage}
           />
         </div>
         <div className="movie-detail-container">

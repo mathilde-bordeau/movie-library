@@ -10,22 +10,27 @@ import moviesRequest from '../../requests/requests';
 
 function SearchBar({
   setQuery,
-  setResult
+  setResult,
+  setMessage
 }) {
 
   const [ searchString, setSearchString] = useState();
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
+    setMessage('');
     if (!searchString) {
       alert('Veuillez entrer au moins un caractère');   
     } else {
       setQuery(searchString);
       try {
         const moviesResults = await moviesRequest.getMoviesBySearch(searchString, 1);
+        if (moviesResults.results.length === 0) {
+          setMessage('Pas de résultat pour votre recherche');
+        }
         setResult(moviesResults);
       } catch (error) {
-        console.log(error);
+        setMessage('Problème serveur, réessayer plus tard.');
       }
     }
     
@@ -46,11 +51,13 @@ function SearchBar({
       </Form>
     </div>
   );
+  
 }
 
 SearchBar.propTypes = {
   setQuery: PropTypes.func,
   setResult: PropTypes.func,
+  setMessage: PropTypes.func,
 };
 
 export default React.memo(SearchBar);
