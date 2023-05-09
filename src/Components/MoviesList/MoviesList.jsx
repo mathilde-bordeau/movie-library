@@ -66,7 +66,8 @@ function MoviesList({
       <div className="message-container">
         <p>{message}</p>
       </div>
-      <div className="movieslist-detail-container">
+      <div className={classnames('movieslist-detail-container', 
+        (result.page === undefined || result.total_results === 0) ? 'no-display' : '')}>
         <div className="movieslist-detail">
           <ListGroup>
             {movies.map((movie) =>

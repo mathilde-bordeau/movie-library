@@ -71,11 +71,9 @@
 
 
 // Responsive design
-
-@media screen and (max-width: 400px) {
-
+@media screen and (max-width: 420px) {
   .movie-container {
-    // flex-direction: column;
+
     h2 {
       text-align: center;
       margin-top: 2rem;
@@ -100,5 +98,4 @@
       height: 100%;
     }
   }
-
 }

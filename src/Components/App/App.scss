@@ -32,9 +32,7 @@
 
 
 // Responsive design
-
 @media screen and (max-width: 420px) {
-
   .main-container {
     flex-direction: column !important;
     align-self: center;
@@ -49,5 +47,4 @@
       width: 100%;
     }
   }
-
 }
