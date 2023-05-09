@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import './App.scss';
 
 import SearchBar from '../SearchBar/SearchBar';

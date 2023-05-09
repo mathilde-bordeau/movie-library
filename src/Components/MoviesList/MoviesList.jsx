@@ -30,6 +30,7 @@ function MoviesList({
     if (result && result.total_results === 0) {
       setMessage('Pas de résultat pour votre recherche');
       setHiddenLoadingMore(true);
+      setMovies([]);
     } else if (result && result.total_results > 0) {
       setMovies(result.results);
       setMessage('');
