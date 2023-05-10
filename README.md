@@ -8,6 +8,12 @@ Application web présentant une bibliothèque de films.
 - Créer un fichier **.env** à la racine du projet, un example est disponible dans le fichier __.env.exemple__
 - Dans le fichier **.env**, assigner à la variable REACT_APP_API_TMDB  une clé API générée sur [le site TMBD](https://developers.themoviedb.org/3/getting-started/introduction)
 
+
 ## Lancement
 
-- Lancer le projet avec la commande ``npm start``
+Lancer le projet avec la commande ``npm start``
+
+
+## Consultation en ligne
+
+Vous pouvez accéder à l'application directement sur [https://mathilde-bordeau.github.io/movie-library/](https://mathilde-bordeau.github.io/movie-library/)
