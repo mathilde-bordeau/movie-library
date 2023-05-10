@@ -23,6 +23,7 @@ function MoviesList({
 
   useEffect(() => {
 
+    // gestion du bouton "plus de résultats"
     if (result.total_pages != undefined && result.total_pages === 1) {
       setDisabledLoadingMore(true);
     } else {
@@ -43,10 +44,7 @@ function MoviesList({
   }, [result]);
 
 
-  /**
-   * selection du film à afficher
-   * @param id 
-   */
+  // selection du film à afficher
   const getMovie = async (id) => {
     try {
       const movieResult = await moviesRequest.getMovieById(id);
@@ -57,9 +55,7 @@ function MoviesList({
   };
 
   
-  /**
-   * récupération des films la page suivante  
-   */
+  // récupération des films de la page suivante  
   const loadMore = async () => {
     try {
       const moviesResults = await moviesRequest.getMoviesBySearch(query, pageNb+1);

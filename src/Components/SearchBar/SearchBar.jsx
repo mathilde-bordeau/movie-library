@@ -14,13 +14,9 @@ function SearchBar({
   setMessage
 }) {
 
-  const [ searchString, setSearchString] = useState();
+  const [ searchString, setSearchString] = useState('');
 
-
-  /**
-   * 
-   * @param {*} e 
-   */
+  // soumission du formulaire
   const handleOnSubmit = async (e) => {
     e.preventDefault();
     setMessage('');
